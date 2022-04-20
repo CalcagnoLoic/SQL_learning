@@ -38,7 +38,7 @@
     <tbody>
     <?php while($row = $res->fetch()) : ?>
         <tr>
-            <td><?php echo ($row['ville']); ?></td>
+            <td><?php echo ($row['ville']); ?> <input type="checkbox" name="del" </td>
             <td><?php echo ($row['haut']); ?></td>
             <td><?php echo ($row['bas']); ?></td>
         </tr>
@@ -84,8 +84,17 @@
         'ville' => $ville,
         'haut' => $haut,
         'bas' => $bas,
-    ]);
+    ]) or die(print_r($conn->errorInfo()));;
     $res2->closeCursor();
+
+
+    //Supprimer des infos de la db
+    $delID = isset($_GET['del']) ? $_GET['del'] : NULL;
+    $deleteRes = $conn -> prepare("DELETE FROM meteo WHERE ville = :ville");
+    $deleteRes -> execute([
+        'ville' => $delID,
+    ]) or die(print_r($conn->errorInfo()));
+    $deleteRes -> closeCursor();
     ?>
 </body>
 </html>
