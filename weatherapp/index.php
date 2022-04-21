@@ -85,12 +85,13 @@
         'haut' => $haut,
         'bas' => $bas,
     ]) or die(print_r($conn->errorInfo()));;
-    $res2->closeCursor();
 
+    header("Location: /SQL_learning/weatherapp/index.php");
+    $res2->closeCursor();
 
     //Supprimer des infos de la db
     $delID = isset($_GET['del']) ? $_GET['del'] : NULL;
-    $deleteRes = $conn -> prepare("DELETE FROM meteo WHERE ville = :ville");
+    $deleteRes = $conn -> prepare("DELETE FROM meteo WHERE ville :ville");
     $deleteRes -> execute([
         'ville' => $delID,
     ]) or die(print_r($conn->errorInfo()));
