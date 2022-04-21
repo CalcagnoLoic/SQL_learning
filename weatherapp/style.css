@@ -1,0 +1,29 @@
+th, table, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2, p {
+    margin-left: 15%;
+}
+form{
+    margin-left: 20%;
+}
+th {
+    padding: 15px 15px 15px 15px;
+}
+td {
+    padding: 5px 5px 5px 5px;
+}
+.btn1, .btn2{
+    margin-top: 5px;
+    padding: 5px 5px 5px 5px;
+}
+.btn1:hover, .btn2:hover{
+    cursor: pointer;
+}
