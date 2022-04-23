@@ -1,18 +1,25 @@
-th, table, td {
-    border: 1px solid black;
-    text-align: center;
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
+table{
+    text-align: center;
+    border-radius: 5px;
+    padding: 0;
+}
+thead, th{
+    background-color: rgb(197, 194, 194);
+}
 h1{
     text-align: center;
-    text-decoration: underline;
+    margin-top: 0px;
 }
-
-h2, p {
+table tr:nth-child(even){
+    background-color:rgb(180, 176, 176);
+  }
+p {
     margin-left: 15%;
-}
-form{
-    margin-left: 20%;
 }
 th {
     padding: 15px 15px 15px 15px;
@@ -23,7 +30,48 @@ td {
 .btn1, .btn2{
     margin-top: 5px;
     padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    border: none;
+}
+.btn1{
+    margin-left: 20%;
+    margin-top: 15px;
 }
 .btn1:hover, .btn2:hover{
     cursor: pointer;
+}
+.btn1:hover{
+    background-color: red;
+    color: #fff;
+    transform: scale(1.1);
+}
+.btn2:hover{
+    background-color: green;
+    color: #fff;
+    transform: scale(1.1);
+}
+.meteo{
+    padding-top: 25px;
+    padding-bottom: 15px;
+    margin-left: 32%;
+}
+p:nth-child(2n){
+    padding-bottom: 20px;
+}
+h2{
+    margin-left: 5%;
+}
+.add {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+    margin-left: 5%;
+}
+div{
+    background-color: rgb(124, 233, 233);
+    line-height: 70px;
+}
+input{
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
 }

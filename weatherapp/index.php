@@ -17,13 +17,16 @@ catch(Exception $e)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Application météo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1>Application météo</h1>
-    <h2>Afficher les infos de la base de donnée dans un tableau HTML</h2>
-    <p>Si vous souhaitez supprimer une ville, cochez la ligne correspondante et envoyer la requête</p>
+    <div class="baneer">
+        <h1>Application météo</h1>
+    </div>
 
     <?php 
     //Réalisation requête
@@ -31,7 +34,7 @@ catch(Exception $e)
     ?>
 
     <!--Création du tableau-->
-    <form action="" method="post">
+    <form action="" method="post" class="meteo">
         <table class="table">
         <thead>
             <tr>
@@ -66,16 +69,17 @@ catch(Exception $e)
         ?>
         <input type="submit" value="Supprimer une ville?" class="btn1">
     </form>
-    <p>Pour que la suppression soit effective, n'oublie pas de refresh la page ;)</p>
+    <p>Pour que la suppression soit affichée, n'oublie pas de refresh la page ;)</p>
+    <p><strong>Attention! </strong>Pour les villes ayant des noms composés, sépare les différentes parties du nom de la ville par des underscores!</p>
         
-    <h2>Ajouter des données depuis un formulaire</h2>
-    <form action="" method="post">
-        <label for="ville">Entrez une ville</label>
-        <input type="" name="ville" pl> <br>
-        <label for="haut">Entrez une température max</label>
-        <input type="" name="haut"> <br>
-        <label for="bas">Entrez une température min</label>
-        <input type="" name="bas"> <br>
+    <h2>Ta ville n'apparait pas dans la liste? N'hésite pas à l'ajouter!</h2>
+    <form action="" method="post" class="add">
+        <label for="ville">Entrez une ville :</label>
+        <input type="" name="ville" placeholder="Ville"> <br>
+        <label for="haut">Entrez une température maximale :</label>
+        <input type="" name="haut" placeholder="Température max"> <br>
+        <label for="bas">Entrez une température minimale :</label>
+        <input type="" name="bas" placeholder="Température min"> <br>
         <input type="submit" value="Ajout d'une ville" class="btn2">
     </form>
 
