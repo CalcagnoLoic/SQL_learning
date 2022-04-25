@@ -1,0 +1,26 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+h1, h2, p {
+    text-decoration: underline;
+}
+input{
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+.btn {
+    background-color: rgb(173, 184, 184);
+    border: none;
+    font-size: 12px;
+    margin-left: 200px;
+}
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+    transition-duration: 0.5s;
+}
