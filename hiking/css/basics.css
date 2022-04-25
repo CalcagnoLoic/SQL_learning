@@ -3,3 +3,9 @@ label, select, input{
   display: inline-block;
   margin: 5px 0;
 }
+table{
+  border: 1px solid black;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}

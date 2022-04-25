@@ -53,6 +53,12 @@ catch(Exception $e)
 	</form>
 
 	<?php
+	session_start();
+	$_SESSION['name'] = $name;
+	$_SESSION['difficulty'] = $difficulty;
+	$_SESSION['distance'] = $distance;
+	$_SESSION['duration'] = $duration;
+	$_SESSION['height_difference'] = $height_difference;
 	//Récupération des infos
 	$name = isset($_POST['name']) ? $_POST['name'] : NULL;
 	$difficulty = isset($_POST['difficulty']) ? $_POST['difficulty'] : NULL;
@@ -60,20 +66,29 @@ catch(Exception $e)
 	$duration = isset($_POST['duration']) ? $_POST['duration'] : NULL;
 	$height_difference = isset($_POST['height_difference']) ? $_POST['height_difference'] : NULL;
 
+	try {
+		//requête préparée
+		$add_city = $conn->prepare("INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES (:name, :difficulty, :distance, :duration, :height_difference)");
 
-	//requête préparée
-	$add_city = $conn->prepare("INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES (:name, :difficulty, :distance, :duration, :height_difference)");
+		$add_city->execute([
+			'name' => $name,
+			'difficulty' => $difficulty,
+			'distance' => $distance,
+			'duration' => $duration,
+			'height_difference' => $height_difference,
+		]);
 
-	$add_city->execute([
-		'name' => $name,
-		'difficulty' => $difficulty,
-		'distance' => $distance,
-		'duration' => $duration,
-		'height_difference' => $height_difference,
-  ]);
+		
 
-  $add_city->closeCursor();
+		echo "Félicitations, la randonnée a été ajoutée avec succès!";
+	} catch (Exception $e) {
+		echo "Oops, erreur 404! :(";
+	}
 	?>
-  <!--<script>alert("Randonnée ajoutée avec succès!")</script>-->
+	<?php
+	//header("Location: http://localhost/SQL_learning/hiking/create.php");
+	//exit();
+	?>
+
 </body>
 </html>
