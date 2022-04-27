@@ -48,8 +48,15 @@ catch(Exception $e)
     $nbr = isset($_POST['cardNumber']) ? $_POST['cardNumber'] : NULL ;
     $cards = isset($_POST['card']) ? $_POST['card'] : NULL ;
 
-    
+    $add_client = $conn -> prepare("INSERT INTO clients(lastName, firstName, birthDate, card, cardNumber) VALUES (:lastName, :firstName, :birthDate, :card, :cardNumber)");
 
+    $add_client -> execute([
+        'lastName' => $nom,
+        'firstName' => $prenom,
+        'birthDate' => $date, 
+        'card' => $cards,
+        'cardNumber' => $nbr,
+    ])
     ?>
 </body>
 </html>

@@ -8,7 +8,6 @@ catch(Exception $e)
     // En cas d'erreur, on affiche un message et on arrête tout
     die('Erreur : '.$e->getMessage());
 }
-session_start();
 ?>
 
 <!DOCTYPE html>

@@ -53,18 +53,13 @@ catch(Exception $e)
 	</form>
 
 	<?php
-	session_start();
-	$_SESSION['name'] = $name;
-	$_SESSION['difficulty'] = $difficulty;
-	$_SESSION['distance'] = $distance;
-	$_SESSION['duration'] = $duration;
-	$_SESSION['height_difference'] = $height_difference;
 	//Récupération des infos
 	$name = isset($_POST['name']) ? $_POST['name'] : NULL;
 	$difficulty = isset($_POST['difficulty']) ? $_POST['difficulty'] : NULL;
 	$distance = isset($_POST['distance']) ? $_POST['distance'] : NULL;
 	$duration = isset($_POST['duration']) ? $_POST['duration'] : NULL;
 	$height_difference = isset($_POST['height_difference']) ? $_POST['height_difference'] : NULL;
+
 
 	try {
 		//requête préparée
@@ -77,8 +72,6 @@ catch(Exception $e)
 			'duration' => $duration,
 			'height_difference' => $height_difference,
 		]);
-
-		
 
 		echo "Félicitations, la randonnée a été ajoutée avec succès!";
 	} catch (Exception $e) {
